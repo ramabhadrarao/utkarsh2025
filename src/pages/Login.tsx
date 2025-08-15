@@ -63,7 +63,11 @@ const Login: React.FC = () => {
         <div className="text-center">
           <div className="flex justify-center mb-4">
             <div className="w-16 h-16 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-lg flex items-center justify-center">
-              <Zap className="w-8 h-8 text-white" />
+              <img 
+                src="/images/logo.png" 
+                alt="UTKARSH Logo" 
+                className="relative w-10 h-10 sm:w-12 sm:h-12 object-contain rounded-lg transform group-hover:scale-110 transition-transform duration-300"
+              />
             </div>
           </div>
           <h2 className="text-3xl font-bold text-white mb-2">Welcome back!</h2>
