@@ -1,5 +1,8 @@
+// src/pages/AdminDashboard.tsx
+
 import React, { useState, useEffect } from 'react';
-import { Users, Calendar, Trophy, DollarSign, Plus, Edit, Eye } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Users, Calendar, Trophy, DollarSign, Plus, Edit, Eye, FileText } from 'lucide-react';
 import axios from 'axios';
 
 interface Stats {
@@ -334,6 +337,85 @@ const AdminDashboard: React.FC = () => {
                   </tbody>
                 </table>
               </div>
+            </div>
+          </div>
+        )}
+
+        {/* Events Tab */}
+        {activeTab === 'events' && (
+          <div className="space-y-6">
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-8 border border-white/20">
+              <div className="flex justify-between items-center mb-6">
+                <h2 className="text-2xl font-bold text-white">Event Management</h2>
+                <Link
+                  to="/admin/events"
+                  className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition-colors duration-200 flex items-center space-x-2"
+                >
+                  <Calendar className="w-5 h-5" />
+                  <span>Manage Events</span>
+                </Link>
+              </div>
+              <p className="text-gray-300 mb-6">
+                Create, edit, and manage all fest events from the dedicated event management page.
+              </p>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div className="bg-white/5 rounded-lg p-6">
+                  <h3 className="text-lg font-semibold text-white mb-2">Total Events</h3>
+                  <p className="text-3xl font-bold text-blue-400">{stats?.totalEvents || 0}</p>
+                </div>
+                <div className="bg-white/5 rounded-lg p-6">
+                  <h3 className="text-lg font-semibold text-white mb-2">Active Events</h3>
+                  <p className="text-3xl font-bold text-green-400">{stats?.totalEvents || 0}</p>
+                </div>
+                <div className="bg-white/5 rounded-lg p-6">
+                  <h3 className="text-lg font-semibold text-white mb-2">Total Prize Pool</h3>
+                  <p className="text-3xl font-bold text-yellow-400">₹1.5L</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Registrations Tab */}
+        {activeTab === 'registrations' && (
+          <div className="space-y-6">
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-8 border border-white/20">
+              <div className="flex justify-between items-center mb-6">
+                <h2 className="text-2xl font-bold text-white">Registration Overview</h2>
+                <div className="flex space-x-4">
+                  <div className="text-right">
+                    <p className="text-sm text-gray-400">Total Registrations</p>
+                    <p className="text-2xl font-bold text-white">{stats?.totalRegistrations || 0}</p>
+                  </div>
+                  <div className="text-right">
+                    <p className="text-sm text-gray-400">Pending Verifications</p>
+                    <p className="text-2xl font-bold text-yellow-400">{stats?.pendingVerifications || 0}</p>
+                  </div>
+                  <div className="text-right">
+                    <p className="text-sm text-gray-400">Total Revenue</p>
+                    <p className="text-2xl font-bold text-green-400">₹{stats?.totalRevenue || 0}</p>
+                  </div>
+                </div>
+              </div>
+              <p className="text-gray-300">
+                View and manage all student registrations from the registrations page.
+              </p>
+            </div>
+
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-8 border border-white/20">
+              <div className="flex justify-between items-center mb-6">
+                <h2 className="text-2xl font-bold text-white">News & Announcements</h2>
+                <Link
+                  to="/admin/news"
+                  className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded-lg transition-colors duration-200 flex items-center space-x-2"
+                >
+                  <Plus className="w-5 h-5" />
+                  <span>Manage News</span>
+                </Link>
+              </div>
+              <p className="text-gray-300">
+                Create and manage fest announcements, updates, and important news that will be displayed on the home page.
+              </p>
             </div>
           </div>
         )}

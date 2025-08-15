@@ -1,0 +1,15 @@
+Admin user created successfully!
+=====================================
+Admin Credentials:
+Email: admin@utkarsh2025.com
+Password: admin123456
+=====================================
+Please change the password after first login!
+Organizer created: tech.organizer@utkarsh2025.com
+Organizer created: nontech.organizer@utkarsh2025.com
+Organizer created: hackathon.organizer@utkarsh2025.com
+
+Organizer Credentials:
+Tech Organizer - Email: tech.organizer@utkarsh2025.com, Password: organizer123
+Non-Tech Organizer - Email: nontech.organizer@utkarsh2025.com, Password: organizer123
+Hackathon Organizer - Email: hackathon.organizer@utkarsh2025.com, Password: organizer123

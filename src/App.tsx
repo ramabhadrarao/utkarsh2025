@@ -1,3 +1,4 @@
+// src/App.tsx
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { AuthProvider } from './contexts/AuthContext';
@@ -9,6 +10,8 @@ import Events from './pages/Events';
 import EventRegistration from './pages/EventRegistration';
 import OrganizerDashboard from './pages/OrganizerDashboard';
 import AdminDashboard from './pages/AdminDashboard';
+import EventManagement from './pages/EventManagement';
+import NewsManagement from './pages/NewsManagement';
 import ProtectedRoute from './components/ProtectedRoute';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -20,10 +23,13 @@ function App() {
         <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800">
           <Navbar />
           <Routes>
+            {/* Public Routes */}
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/events" element={<Events />} />
+            
+            {/* Student Routes */}
             <Route 
               path="/dashboard" 
               element={
@@ -40,6 +46,8 @@ function App() {
                 </ProtectedRoute>
               } 
             />
+            
+            {/* Organizer Routes */}
             <Route 
               path="/organizer" 
               element={
@@ -48,11 +56,29 @@ function App() {
                 </ProtectedRoute>
               } 
             />
+            
+            {/* Admin Routes */}
             <Route 
               path="/admin" 
               element={
                 <ProtectedRoute allowedRoles={['admin']}>
                   <AdminDashboard />
+                </ProtectedRoute>
+              } 
+            />
+            <Route 
+              path="/admin/events" 
+              element={
+                <ProtectedRoute allowedRoles={['admin']}>
+                  <EventManagement />
+                </ProtectedRoute>
+              } 
+            />
+            <Route 
+              path="/admin/news" 
+              element={
+                <ProtectedRoute allowedRoles={['admin']}>
+                  <NewsManagement />
                 </ProtectedRoute>
               } 
             />
