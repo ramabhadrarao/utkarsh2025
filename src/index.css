@@ -1,21 +1,20 @@
-/* Custom font - Saman */
-@import url('https://fonts.googleapis.com/css2?family=Saman:wght@400;500;600;700;800;900&display=swap');
+/* Local font - Must be declared BEFORE Tailwind */
+@font-face {
+  font-family: 'Saman';
+  src: url('/fonts/SAMAN.TTF') format('truetype');
+  font-weight: 400 900;
+  font-style: normal;
+  font-display: swap;
+}
 
+/* Tailwind Directives */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-/* Custom font - Saman */
-/* @import url('https://fonts.googleapis.com/css2?family=Saman:wght@400;500;600;700;800;900&display=swap'); */
 
-/* Fallback font definitions */
-@font-face {
-  font-family: 'Saman';
-  font-weight: 400;
-  font-style: normal;
-  src: local('Saman'), local('Saman-Regular'), 
-       url('https://fonts.gstatic.com/s/saman/v1/Saman-Regular.woff2') format('woff2'),
-       url('https://fonts.gstatic.com/s/saman/v1/Saman-Regular.woff') format('woff');
-  font-display: swap;
+/* Custom classes */
+.title-saman {
+  font-family: 'Saman', serif !important;
 }
 
 /* Custom animations */
@@ -123,6 +122,17 @@ textarea:focus {
 @media (max-width: 768px) {
   .animate-marquee {
     animation-duration: 20s;
+  }
+  
+  /* Ensure hero section content is visible on mobile */
+  .title-saman {
+    font-size: clamp(2.5rem, 10vw, 4rem) !important;
+    line-height: 1.1 !important;
+  }
+  
+  /* Reduce animation on mobile for performance */
+  .animate-pulse {
+    animation-duration: 3s;
   }
 }
 

@@ -70,103 +70,6 @@ const Home: React.FC = () => {
 
   return (
     <div className="min-h-screen">
-      {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden">
-        {/* Background Images Slider */}
-        <div className="absolute inset-0">
-          {heroImages.map((image, index) => (
-            <div
-              key={index}
-              className={`absolute inset-0 transition-opacity duration-1000 ${
-                index === currentImageIndex ? 'opacity-30' : 'opacity-0'
-              }`}
-            >
-              <img
-                src={image}
-                alt={`Hero ${index + 1}`}
-                className="w-full h-full object-cover"
-              />
-            </div>
-          ))}
-          <div className="absolute inset-0 bg-gradient-to-br from-slate-900/80 via-blue-900/70 to-purple-900/80"></div>
-        </div>
-
-        {/* Hero Content */}
-        <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
-          <div className="space-y-8">
-            {/* Main Title */}
-            <div>
-              <h1 
-                className="text-6xl md:text-8xl font-bold mb-4 bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 bg-clip-text text-transparent animate-pulse"
-                style={{ fontFamily: 'Saman, serif' }}
-              >
-                UTKARSH 2025
-              </h1>
-              <p className="text-xl md:text-2xl text-gray-300 font-light">
-                ....by the students of IT and DS
-              </p>
-            </div>
-
-            {/* Subtitle */}
-            <div className="space-y-4">
-              <h2 className="text-3xl md:text-4xl font-bold text-white">
-                A Three Day National Technical Fest
-              </h2>
-              <p className="text-xl md:text-2xl text-blue-200 font-medium">
-                A vibrant celebration of Skill, Creativity and Teamwork!
-              </p>
-            </div>
-
-            {/* Event Details */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 my-12">
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-                <Calendar className="w-8 h-8 text-yellow-400 mb-3 mx-auto" />
-                <h3 className="text-lg font-semibold text-white mb-2">Event Dates</h3>
-                <p className="text-blue-200">9th, 10th & 11th September 2025</p>
-              </div>
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-                <Trophy className="w-8 h-8 text-yellow-400 mb-3 mx-auto" />
-                <h3 className="text-lg font-semibold text-white mb-2">Total Prizes</h3>
-                <p className="text-green-300 text-xl font-bold">₹1.5 LAKHS</p>
-              </div>
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-                <MapPin className="w-8 h-8 text-yellow-400 mb-3 mx-auto" />
-                <h3 className="text-lg font-semibold text-white mb-2">Venue</h3>
-                <p className="text-blue-200">Swarnandhra College of Engineering</p>
-              </div>
-            </div>
-
-            {/* Call to Action */}
-            <div className="space-y-4">
-              <p className="text-lg text-gray-300">
-                Join us for an exciting lineup of events including technical, non-technical and 24-Hour Hackathon
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link
-                  to="/register"
-                  className="bg-gradient-to-r from-yellow-500 to-orange-600 hover:from-yellow-600 hover:to-orange-700 text-white px-8 py-4 rounded-lg font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-2xl"
-                >
-                  Register Now
-                </Link>
-                <Link
-                  to="/events"
-                  className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-slate-900 px-8 py-4 rounded-lg font-bold text-lg transition-all duration-300 transform hover:scale-105"
-                >
-                  View Events
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <div className="w-6 h-10 border-2 border-white rounded-full flex justify-center">
-            <div className="w-1 h-3 bg-white rounded-full mt-2 animate-ping"></div>
-          </div>
-        </div>
-      </section>
-
       {/* Latest News Ticker */}
       {news.length > 0 && (
         <section className="bg-gradient-to-r from-blue-600 to-purple-600 py-3">
@@ -191,6 +94,109 @@ const Home: React.FC = () => {
         </section>
       )}
 
+     {/* Hero Section */}
+<section className="relative min-h-screen h-screen flex items-center justify-center overflow-hidden">
+  {/* Background Video */}
+  <div className="absolute inset-0">
+    <video
+      autoPlay
+      loop
+      muted
+      playsInline
+      className="absolute w-full h-full object-cover"
+    >
+      <source src="https://swarnandhra.ac.in/utkarsh2024/assets/video.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+    {/* Lighter overlay for mobile to ensure text visibility */}
+    <div className="absolute inset-0 bg-gradient-to-br from-slate-900/60 via-blue-900/50 to-purple-900/60 sm:from-slate-900/80 sm:via-blue-900/70 sm:to-purple-900/80"></div>
+  </div>
+
+  {/* Hero Content - adjusted positioning for mobile */}
+  <div className="relative z-10 text-center px-4 w-full flex items-center justify-center min-h-screen">
+    <div className="space-y-4 sm:space-y-8 py-20">
+      {/* Main Title */}
+      <div className="w-full">
+        <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-2 sm:mb-4 bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 bg-clip-text text-transparent animate-pulse title-saman leading-tight">
+          UTKARSH 2025
+        </h1>
+        <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 font-light text-center sm:text-right">
+          ....by the students of IT and DS
+        </p>
+      </div>
+      {/* Subtitle */}
+      <div className="space-y-2 sm:space-y-4">
+        <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white">
+          A Three Day National Technical Fest
+        </h2>
+        <p className="text-lg sm:text-xl md:text-2xl text-blue-200 font-medium px-2">
+          A vibrant celebration of Skill, Creativity and Teamwork!
+        </p>
+      </div>
+
+      {/* Event Details - Hidden on very small screens, shown on larger */}
+      <div className="hidden sm:grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 my-8 sm:my-12">
+        <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-white/20">
+          <Calendar className="w-6 h-6 sm:w-8 sm:h-8 text-yellow-400 mb-2 sm:mb-3 mx-auto" />
+          <h3 className="text-base sm:text-lg font-semibold text-white mb-1 sm:mb-2">Event Dates</h3>
+          <p className="text-blue-200 text-sm sm:text-base">9th, 10th & 11th September 2025</p>
+        </div>
+        <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-white/20">
+          <Trophy className="w-6 h-6 sm:w-8 sm:h-8 text-yellow-400 mb-2 sm:mb-3 mx-auto" />
+          <h3 className="text-base sm:text-lg font-semibold text-white mb-1 sm:mb-2">Total Prizes</h3>
+          <p className="text-green-300 text-lg sm:text-xl font-bold">₹1.5 LAKHS</p>
+        </div>
+        <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-white/20">
+          <MapPin className="w-6 h-6 sm:w-8 sm:h-8 text-yellow-400 mb-2 sm:mb-3 mx-auto" />
+          <h3 className="text-base sm:text-lg font-semibold text-white mb-1 sm:mb-2">Venue</h3>
+          <p className="text-blue-200 text-sm sm:text-base">Swarnandhra College of Engineering</p>
+        </div>
+      </div>
+
+      {/* Mobile Event Details - Visible only on small screens */}
+      <div className="sm:hidden space-y-2 my-6">
+        <div className="flex items-center justify-center space-x-2 text-yellow-300">
+          <Calendar className="w-5 h-5" />
+          <span className="text-sm">Sept 9-11, 2025</span>
+        </div>
+        <div className="flex items-center justify-center space-x-2 text-green-300">
+          <Trophy className="w-5 h-5" />
+          <span className="text-sm font-bold">₹1.5 LAKHS Prizes</span>
+        </div>
+      </div>
+
+      {/* Call to Action */}
+      <div className="space-y-4 pt-4 sm:pt-0">
+        <p className="text-base sm:text-lg text-gray-300 px-2 hidden sm:block">
+          Join us for an exciting lineup of events including technical, non-technical and 24-Hour Hackathon
+        </p>
+        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+          <Link
+            to="/register"
+            className="bg-gradient-to-r from-yellow-500 to-orange-600 hover:from-yellow-600 hover:to-orange-700 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-bold text-base sm:text-lg transition-all duration-300 transform hover:scale-105 shadow-2xl"
+          >
+            Register Now
+          </Link>
+          <Link
+            to="/events"
+            className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-slate-900 px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-bold text-base sm:text-lg transition-all duration-300 transform hover:scale-105"
+          >
+            View Events
+          </Link>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {/* Scroll Indicator - Hidden on mobile */}
+  <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce hidden sm:block">
+    <div className="w-6 h-10 border-2 border-white rounded-full flex justify-center">
+      <div className="w-1 h-3 bg-white rounded-full mt-2 animate-ping"></div>
+    </div>
+  </div>
+</section>
+
+      
       {/* Featured Events */}
       <section className="py-20 bg-gradient-to-br from-slate-800 to-slate-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
